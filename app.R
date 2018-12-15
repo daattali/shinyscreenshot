@@ -1,6 +1,13 @@
 # https://html2canvas.hertzen.com
 # Limitations: browser support see, some CSS properties (which I think is the reason why leaflet shows up as just gray), more info at https://html2canvas.hertzen.com/documentation
 # Also, images that have a large size (I haven't tested, but it seems when the canvas blobk is over 1 or 2 GB for me) it fails due to memory issues.
+# also, due to bugs and limitations in html2canvas, some pages won't take a screenshot at all.
+
+# bug with html2canvas: shiny uses background: linear-gradient(to bottom, #DDD -50%, #FFF 150%)
+# and it looks like having values below 0 or above 100 result in a fatal error.
+# It's legal to do so (https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Images/Using_CSS_gradients#Positioning_color_stops)
+# but regardless, it would be better if any errors encountered while converting to a canvas
+# would not be fatal
 
 library(shiny)
 
