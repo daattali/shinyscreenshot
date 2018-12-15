@@ -33,6 +33,7 @@ setupcapture <- function() {
   shiny::insertUI("head", "beforeEnd", {
     shiny::singleton(shiny::tags$head(
       shiny::tags$script(src = "shinyscreenshot/saveFile.js"),
+      shiny::tags$script(src = "shinyscreenshot/FileSaver.js"), # this is version2, use version 1 first but it doesn't work on large blobs (like when you scale or if the image has a lot of details)
       shiny::tags$script(src = "shinyscreenshot/html2canvas.min.js")
     ))
   }, immediate = TRUE)
