@@ -1,5 +1,5 @@
 Shiny.addCustomMessageHandler('screenshot', function(params) {
-    html2canvas($(params.selector)[0]).then(function(canvas) {
+    html2canvas($(params.selector)[0], { scale : params.scale }).then(function(canvas) {
         img = canvas.toDataURL();
         saveFile(img, params.filename);
     });

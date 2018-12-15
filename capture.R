@@ -1,5 +1,5 @@
 
-docapture <- function(id = "", selector = "body", filename = "screenshot.png") {
+docapture <- function(id = "", selector = "body", filename = "screenshot.png", scale = 1) {
   setupcapture()
 
   if (nzchar(id)) {
@@ -7,7 +7,7 @@ docapture <- function(id = "", selector = "body", filename = "screenshot.png") {
   }
 
   session <- getSession()
-  session$sendCustomMessage("screenshot", list(selector = selector, filename = filename))
+  session$sendCustomMessage("screenshot", list(selector = selector, filename = filename, scale = scale))
 }
 
 getSession <- function() {
