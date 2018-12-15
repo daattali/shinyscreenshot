@@ -1,3 +1,5 @@
+# inspired by Eric https://community.rstudio.com/t/taking-screenshots-within-a-shiny-app/6892
+# (this is the second package that I make for the general public just because Eric asked a question that interested me and included a good resource)
 # https://html2canvas.hertzen.com
 # Limitations: browser support see, some CSS properties (which I think is the reason why leaflet shows up as just gray), more info at https://html2canvas.hertzen.com/documentation
 # Also, images that have a large size (I haven't tested, but it seems when the canvas blobk is over 1 or 2 GB for me) it fails due to memory issues.
