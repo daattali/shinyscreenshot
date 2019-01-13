@@ -1,0 +1,19 @@
+Package: shinyscreenshot
+Title: Capture Screenshots of Areas or Entire Pages in Shiny
+Version: 0.0.9000
+Authors@R: person("Dean", "Attali", email = "daattali@gmail.com",
+    role = c("aut", "cre"))
+Description: TODO
+URL: https://deanattali.com/shinyscreenshot
+BugReports: https://github.com/daattali/shinyscreenshot/issues
+Depends:
+    R (>= 3.1.0)
+Imports:
+    shiny (>= 1.0.0)
+Suggests:
+    knitr,
+    rmarkdown
+License: MIT + file LICENSE
+LazyData: true
+VignetteBuilder: knitr
+RoxygenNote: 6.1.1
