@@ -1,21 +1,21 @@
 #' @export
-screenshot <- function(id = "", selector = "body", filename = "screenshot",
+screenshot <- function(selector = "body", filename = "shinyscreenshot", id = "",
                        scale = 1, timer = 0) {
   if (timer < 0) {
     stop("'timer' must be >= 0.", call. = FALSE)
   }
+
   useShinyscreenshot()
 
+  session <- getSession()
+
   if (nzchar(id)) {
-    selector <- paste0("#", id)
+    selector <- paste0("#",  session$ns(id))
   }
 
-  filename <- paste0(filename, ".png")
-
-  session <- getSession()
   params <- list(
     selector = selector,
-    filename = filename,
+    filename = paste0(filename, ".png"),
     scale = scale,
     timer = timer
   )
