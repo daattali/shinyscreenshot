@@ -1,8 +1,14 @@
 Package: shinyscreenshot
-Title: Capture Screenshots of Areas or Entire Pages in Shiny
+Title: Capture Screenshots of Entire Pages or Parts of Pages in Shiny
 Version: 0.0.9000
-Authors@R: person("Dean", "Attali", email = "daattali@gmail.com",
-    role = c("aut", "cre"))
+Authors@R: c(
+    person("Dean", "Attali", email = "daattali@gmail.com",
+      role = c("aut", "cre")),
+    person("Niklas", "von Hertzen", email = "niklasvh@gmail.com",
+      role = c("aut"), comment = "html2canvas library"),
+    person("Eli", "Grey", email = "~@eligrey.com",
+      role = c("aut"), comment = "FileSaver library")
+    )
 Description: TODO
 URL: https://deanattali.com/shinyscreenshot
 BugReports: https://github.com/daattali/shinyscreenshot/issues
