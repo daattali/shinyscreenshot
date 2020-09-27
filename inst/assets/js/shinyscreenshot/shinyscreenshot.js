@@ -1,8 +1,8 @@
-Shiny.addCustomMessageHandler('screenshot', function(params) {
-  setTimeout(function() { shinyscreenshot.takeScreenshot(params) }, params.timer*1000);
-});
-
 var shinyscreenshot = {
+  initScreenshot : function(params) {
+    setTimeout(function() { shinyscreenshot.takeScreenshot(params) }, params.timer*1000);
+  },
+
   takeScreenshot : function(params) {
     var element = $(params.selector)[0];
     html2canvas(
@@ -15,5 +15,12 @@ var shinyscreenshot = {
       var img = canvas.toDataURL();
       saveAs(img, params.filename);
     });
+  },
+
+  screenshotButton : function(id) {
+    var params = $("#" + id).data("shinyscreenshot-params");
+    shinyscreenshot.initScreenshot(params);
   }
 };
+
+Shiny.addCustomMessageHandler('screenshot', shinyscreenshot.initScreenshot)

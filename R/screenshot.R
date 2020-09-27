@@ -1,23 +1,31 @@
 #' @export
 screenshot <- function(selector = "body", filename = "shinyscreenshot", id = "",
                        scale = 1, timer = 0) {
-  if (timer < 0) {
-    stop("'timer' must be >= 0.", call. = FALSE)
-  }
+  params <- getParams(as.list(environment()), server = TRUE)
 
-  useShinyscreenshot()
+  shiny::insertUI("head", "beforeEnd", getDependencies(), immediate = TRUE)
 
   session <- getSession()
-
-  if (nzchar(id)) {
-    selector <- paste0("#",  session$ns(id))
-  }
-
-  params <- list(
-    selector = selector,
-    filename = paste0(filename, ".png"),
-    scale = scale,
-    timer = timer
-  )
   session$sendCustomMessage("screenshot", params)
+}
+
+#' @export
+screenshotButton <- function(label = "Screenshot", icon = shiny::icon("camera"),
+                             selector = "body", filename = "shinyscreenshot", id = "",
+                             scale = 1, timer = 0) {
+  params <- getParams(as.list(environment()), server = FALSE)
+
+  btnid <- paste0("__shinyscreenshot-", gsub("-", "", uuid::UUIDgenerate()))
+
+  tagList(
+    getDependencies(),
+
+    shiny::actionButton(
+      inputId = btnid,
+      label = label,
+      icon = icon,
+      `data-shinyscreenshot-params` = jsonlite::toJSON(params, auto_unbox = TRUE),
+      onclick = paste0("shinyscreenshot.screenshotButton('", btnid, "')")
+    )
+  )
 }
