@@ -1,5 +1,5 @@
 Package: shinyscreenshot
-Title: Capture Screenshots of Entire Pages or Parts of Pages in Shiny
+Title: Capture Screenshots of Entire Pages or Parts of Pages in 'Shiny'
 Version: 0.0.9000
 Authors@R: c(
     person("Dean", "Attali", email = "daattali@gmail.com",
@@ -9,7 +9,10 @@ Authors@R: c(
     person("Eli", "Grey", email = "~@eligrey.com",
       role = c("aut"), comment = "FileSaver library")
     )
-Description: TODO
+Description: Capture Screenshots in 'Shiny' applications. Screenshots can either be
+    of the entire viewable page, or a specific section of the page. The captured
+    image is automatically downloaded as a PNG image. Powered by the
+    'html2canvas' JavaScript library.
 URL: https://deanattali.com/shinyscreenshot
 BugReports: https://github.com/daattali/shinyscreenshot/issues
 Depends:
@@ -25,3 +28,4 @@ LazyData: true
 VignetteBuilder: knitr
 Encoding: UTF-8
 RoxygenNote: 7.1.1
+Roxygen: list(markdown = TRUE)

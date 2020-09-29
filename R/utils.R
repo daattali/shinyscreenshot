@@ -23,6 +23,9 @@ getParams <- function(params, server = TRUE) {
   if (params[["timer"]] < 0) {
     stop("'timer' must be >= 0.", call. = FALSE)
   }
+  if (params[["scale"]] <= 0) {
+    stop("'scale' must be > 0.", call. = FALSE)
+  }
 
   if (nzchar(params[["id"]])) {
     if (server) {
