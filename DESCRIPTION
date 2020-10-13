@@ -22,7 +22,8 @@ Imports:
     uuid
 Suggests:
     knitr,
-    rmarkdown
+    rmarkdown,
+    timevis
 License: MIT + file LICENSE
 LazyData: true
 VignetteBuilder: knitr

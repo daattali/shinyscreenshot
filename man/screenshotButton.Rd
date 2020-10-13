@@ -31,15 +31,15 @@ image that's twice the height and width (and a larger file size).}
 \item{timer}{Number of seconds to wait before taking the screenshot. Default is 0, which
 takes a screenshot immediately.}
 
-\item{...}{Any other parameters that should be passed onto the \code{shiny::actionButton()}.}
+\item{...}{Any other parameters that should be passed along to the \code{\link[shiny:actionButton]{shiny::actionButton()}}.}
 }
 \description{
 Create a button that, when clicked, captures a screenshot of the Shiny app.
-Screenshots can be either of the entire viewable page, or of a specific
+Screenshots can be either of the entire viewable page (default), or of a specific
 section of the page. The captured image is automatically downloaded as a
 PNG image.\cr\cr
 This function gets called from the UI portion of a Shiny app, unlike
-\code{screenshotButton()} which is similar but gets called from the UI.
+\code{\link[=screenshot]{screenshot()}} which is similar but gets called from the server.
 }
 \examples{
 if (interactive()) {

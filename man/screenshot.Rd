@@ -21,7 +21,7 @@ the entire page.}
 
 \item{id}{As an alternative to \code{selector}, an ID of the element that should be captured
 can be provided. If \code{id} is provided, then \code{selector} is ignored. When used in a module,
-the \code{id} \strong{does not} need to be namespaced (it happens automatically).}
+the \code{id} \strong{does not} need to be namespaced (namespacing is automatic).}
 
 \item{scale}{The scale of the image. Default is 1, which means the dimensions of the image
 will be exactly the dimensions in the browser. For example, a value of 2 will result in an
@@ -31,11 +31,11 @@ image that's twice the height and width (and a larger file size).}
 takes a screenshot immediately.}
 }
 \description{
-Screenshots can be either of the entire viewable page, or of a specific
+Screenshots can be either of the entire viewable page (default), or of a specific
 section of the page. The captured image is automatically downloaded as a
 PNG image.\cr\cr
 This function gets called from the server portion of a Shiny app, unlike
-\code{screenshotButton()} which is similar but gets called from the UI.
+\code{\link[=screenshotButton]{screenshotButton()}} which is similar but gets called from the UI.
 }
 \examples{
 if (interactive()) {
@@ -44,7 +44,7 @@ if (interactive()) {
 
   shinyApp(
     ui = fluidPage(
-      h1("shinyscreenshot demo"),
+      h1("{shinyscreenshot} demo"),
       numericInput("num", "Number of points", 50),
       plotOutput("plot"),
       actionButton("screenshot1", "Capture entire page"),

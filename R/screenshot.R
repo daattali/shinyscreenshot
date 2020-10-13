@@ -1,10 +1,10 @@
 #' Capture a screenshot of a shiny app
 #'
-#' Screenshots can be either of the entire viewable page, or of a specific
+#' Screenshots can be either of the entire viewable page (default), or of a specific
 #' section of the page. The captured image is automatically downloaded as a
 #' PNG image.\cr\cr
 #' This function gets called from the server portion of a Shiny app, unlike
-#' `screenshotButton()` which is similar but gets called from the UI.
+#' [`screenshotButton()`] which is similar but gets called from the UI.
 #'
 #' @param selector CSS selector for the element that should be captured. If multiple
 #' elements match the selector, only the first one is captured. Default is to capture
@@ -12,7 +12,7 @@
 #' @param filename Name of the file to be saved. A PNG extension will automatically be added.
 #' @param id As an alternative to `selector`, an ID of the element that should be captured
 #' can be provided. If `id` is provided, then `selector` is ignored. When used in a module,
-#' the `id` **does not** need to be namespaced (it happens automatically).
+#' the `id` **does not** need to be namespaced (namespacing is automatic).
 #' @param scale The scale of the image. Default is 1, which means the dimensions of the image
 #' will be exactly the dimensions in the browser. For example, a value of 2 will result in an
 #' image that's twice the height and width (and a larger file size).
@@ -25,7 +25,7 @@
 #'
 #'   shinyApp(
 #'     ui = fluidPage(
-#'       h1("shinyscreenshot demo"),
+#'       h1("{shinyscreenshot} demo"),
 #'       numericInput("num", "Number of points", 50),
 #'       plotOutput("plot"),
 #'       actionButton("screenshot1", "Capture entire page"),
@@ -58,16 +58,16 @@ screenshot <- function(selector = "body", filename = "shinyscreenshot", id = "",
 #' Button that captures a screenshot of a shiny app
 #'
 #' Create a button that, when clicked, captures a screenshot of the Shiny app.
-#' Screenshots can be either of the entire viewable page, or of a specific
+#' Screenshots can be either of the entire viewable page (default), or of a specific
 #' section of the page. The captured image is automatically downloaded as a
 #' PNG image.\cr\cr
 #' This function gets called from the UI portion of a Shiny app, unlike
-#' `screenshotButton()` which is similar but gets called from the UI.
+#' [`screenshot()`] which is similar but gets called from the server.
 #' @inheritParams screenshot
 #' @param id As an alternative to `selector`, an ID of the element that should be captured
 #' can be provided. If `id` is provided, then `selector` is ignored. When used in a module,
 #' the `id` **does** need to be namespaced, like any other UI element.
-#' @param ... Any other parameters that should be passed onto the `shiny::actionButton()`.
+#' @param ... Any other parameters that should be passed along to the [`shiny::actionButton()`].
 #' @examples
 #' if (interactive()) {
 #'   library(shiny)
