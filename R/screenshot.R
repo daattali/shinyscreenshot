@@ -106,7 +106,7 @@ screenshotButton <- function(selector = "body", filename = "shinyscreenshot", id
   btnParams[["onclick"]] <- paste0("shinyscreenshot.screenshotButton('", btnid, "')")
   btnParams[["data-shinyscreenshot-params"]] <- jsonlite::toJSON(params, auto_unbox = TRUE)
 
-  tagList(
+  shiny::tagList(
     getDependencies(),
     do.call(shiny::actionButton, btnParams)
   )
