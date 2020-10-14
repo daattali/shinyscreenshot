@@ -43,10 +43,10 @@ work](https://github.com/sponsors/daattali) to unlock rewards\! ❤**
 # Table of contents
 
   - [How to use](#usage)
-  - [Features](#features)
   - [Screenshot button](#screenshotbutton)
+  - [Features](#features)
   - [Installation](#install)
-  - [Motivation](#motivation})
+  - [Motivation](#motivation)
   - [Browser support and limitations](#limitations)
   - [Similar packages](#similar)
   - [Sponsors 🏆](#sponsors)
@@ -58,7 +58,7 @@ Using {shinyscreenshot} is as easy as it gets. When you want to take a screensho
 It's so simple that an example isn't needed, but here's one anyway:
 
     library(shiny)
-    library(shinyscreensot)
+    library(shinyscreenshot)
 
     ui <- fluidPage(
       textInput("text", "Enter some text", "test"),
@@ -73,6 +73,12 @@ It's so simple that an example isn't needed, but here's one anyway:
     
     shinyApp(ui, server)
 
+<h2 id="screenshotbutton">Screenshot button</h2>
+
+The `screenshot()` function can be called any time inside the server portion of a Shiny app. A very common case is to take a screenshot after clicking a button. That case is so common that there's a function for it: `screenshotButton()`. It accepts all the same parameters as `screenshot()`, but instead of calling it in the server, you call it in the UI. 
+
+`screenshotButton()` creates a button that, when clicked, will take a screenshot.
+
 <h2 id="features">Features</h2>
 
 - **Region:** By default, the entire page is captured. If you'd like to capture a specific part of the screen, you can use the `selector` parameter to specify a CSS selector. For example, if you have a plot with ID `myplot` then you can use `screenshot(selector="#myplot")`.
@@ -83,11 +89,7 @@ It's so simple that an example isn't needed, but here's one anyway:
 
 - **File name:** You can choose the name of the downloaded file using the `filename` parameter.
 
-- **Module support:** As an alternative to the `selector` argument, you can also use the `id` argument. For example, instead of using `screenshot(selector="#myplot)"`, you could use `screenshot(id="myplot")`. The advantage with using an ID directly is that the `id` parameter is module-aware, so even if you're taking a screenshot inside a Shiny module, you don't need to worry about namespacing.
-
-<h2 id="screenshotbutton">Screenshot button</h2>
-
-The `screenshot()` function can be called any time inside the server portion of a Shiny app. A very common case is to take a screenshot after clicking a button. That case is so common that there's a function for it: `screenshotButton()`. It accepts all the same parameters as `screenshot()`, but instead of calling it in the server, you call it in the UI. It creates a button that, when clicked, will take a screenshot.
+- **Module support:** As an alternative to the `selector` argument, you can also use the `id` argument. For example, instead of using `screenshot(selector="#myplot")`, you could use `screenshot(id="myplot")`. The advantage with using an ID directly is that the `id` parameter is module-aware, so even if you're taking a screenshot inside a Shiny module, you don't need to worry about namespacing.
 
 <h2 id="install">Installation</h2>
 
@@ -110,11 +112,11 @@ After seeing many people asking about this, one day my R-friend Eric Nantz [aske
 
 The screenshots are powered by the 'html2canvas' JavaScript library. They do not always produce perfect screenshots, please refer to 'html2canvas' for more information about the limitations.
 
-The JavaScript libraries used in this package may not be supported by all browsers. {shinyscreenshot} should work on Chrome, Firefox, Edge, Chrome on Android, Safari on iPhone. It does not work in Internet Explorer.
+The JavaScript libraries used in this package may not be supported by all browsers. {shinyscreenshot} should work on Chrome, Firefox, Edge, Chrome on Android, Safari on iPhone (and probably more that I haven't tested). It does not work in Internet Explorer.
 
 <h2 id="similar">Similar packages</h2>
 
-As mentioned above, the libraries used by {shinyscreenshot} do have limitations and may not always work. There are two other packages that came out recently that also provide screenshot functionality which you may try and compare: [snapper](https://github.com/yonicd/snapper) by Jonathan Cidi and [capture](https://github.com/dreamRs/capture) by dreamRs.
+As mentioned above, the libraries used by {shinyscreenshot} do have limitations and may not always work. There are two other packages that came out recently that also provide screenshot functionality which you may try and compare: [snapper](https://github.com/yonicd/snapper) by Jonathan Sidi and [capture](https://github.com/dreamRs/capture) by dreamRs.
 
 <h2 id="sponsors">Sponsors 🏆</h2>
 
