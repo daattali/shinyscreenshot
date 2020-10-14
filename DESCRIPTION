@@ -27,7 +27,6 @@ Suggests:
     timevis
 License: MIT + file LICENSE
 LazyData: true
-VignetteBuilder: knitr
 Encoding: UTF-8
 RoxygenNote: 7.1.1
 Roxygen: list(markdown = TRUE)
