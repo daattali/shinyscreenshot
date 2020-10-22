@@ -9,7 +9,7 @@ Authors@R: c(
     person("Eli", "Grey", email = "~@eligrey.com",
       role = c("aut"), comment = "FileSaver library")
     )
-Description: Capture Screenshots in 'Shiny' applications. Screenshots can either be
+Description: Capture screenshots in 'Shiny' applications. Screenshots can either be
     of the entire viewable page, or a specific section of the page. The captured
     image is automatically downloaded as a PNG image. Powered by the
     'html2canvas' JavaScript library.
