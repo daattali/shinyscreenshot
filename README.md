@@ -116,7 +116,9 @@ The JavaScript libraries used in this package may not be supported by all browse
 
 <h2 id="similar">Similar packages</h2>
 
-As mentioned above, the libraries used by {shinyscreenshot} do have limitations and may not always work. There are two other packages that came out recently that also provide screenshot functionality which you may try and compare: [snapper](https://github.com/yonicd/snapper) by Jonathan Sidi and [capture](https://github.com/dreamRs/capture) by dreamRs.
+As mentioned above, the libraries used by {shinyscreenshot} do have limitations and may not always work. There are two other packages that came out recently that also provide screenshot functionality which you may try and compare: [{snapper}](https://github.com/yonicd/snapper) by Jonathan Sidi and [{capture}](https://github.com/dreamRs/capture) by dreamRs.
+
+RStudio's [{webshot}](https://github.com/wch/webshot) package is also similar, but serves a very different purpose. {webshot} is used to take screenshots of any website (including Shiny apps), but you cannot interact with the page in order to take a screenshot at a specific time.
 
 <h2 id="sponsors">Sponsors 🏆</h2>
 
