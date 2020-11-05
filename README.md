@@ -7,6 +7,8 @@
     <a href="https://daattali.com/shiny/shinyscreenshot-demo/">Demo</a>
     &middot;
     by <a href="https://deanattali.com">Dean Attali</a>
+    &middot;
+    <a href="https://www.youtube.com/watch?v=fsd81mnxtNs">10-min Tutorial</a>
   </h4>
 
   <p align="center">
@@ -53,7 +55,7 @@ work](https://github.com/sponsors/daattali) to unlock rewards\! ❤**
 
 <h2 id="usage">How to use</h2>
 
-Using {shinyscreenshot} is as easy as it gets. When you want to take a screenshot, simply call `screenshot()` and a full-page screenshot will be taken and downloaded as a PNG image. [Try it for yourself!](https://daattali.com/shiny/shinyscreenshot-demo/)
+Using {shinyscreenshot} is as easy as it gets. When you want to take a screenshot, simply call `screenshot()` and a full-page screenshot will be taken and downloaded as a PNG image. **[Try it for yourself](https://daattali.com/shiny/shinyscreenshot-demo/) or [watch a short tutorial](https://www.youtube.com/watch?v=fsd81mnxtNs)!**
 
 It's so simple that an example isn't needed, but here's one anyway:
 
