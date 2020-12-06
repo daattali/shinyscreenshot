@@ -124,7 +124,7 @@ RStudio's [{webshot}](https://github.com/wch/webshot) package is also similar, b
 
 <h2 id="sponsors">Sponsors 🏆</h2>
 
-> There are no sponsors yet
+- [Eric Nantz](https://r-podcast.org/)
 
-[Become the first sponsor for
+[Become a sponsor for
 {shinyscreenshot}\!](https://github.com/sponsors/daattali/sponsorships?tier_id=39856)
