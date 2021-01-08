@@ -24,6 +24,8 @@
 
 ---
 
+<img src="inst/img/hex.png" width="170" align="right"/>
+
 {shinyscreenshot} allows you to capture screenshots of entire pages or parts of pages in Shiny apps. Can be used to capture the *current* state of a Shiny app, including interactive widgets (such as plotly, timevis, maps, etc). The captured image is automatically downloaded as a PNG image, or it can be saved on the server.
 
 **Need Shiny help? [I’m available for
@@ -131,4 +133,6 @@ As mentioned above, the libraries used by {shinyscreenshot} do have limitations 
 
 RStudio's [{webshot}](https://github.com/wch/webshot) package is also similar, but serves a very different purpose. {webshot} is used to take screenshots of any website (including Shiny apps), but you cannot interact with the page in order to take a screenshot at a specific time.
 
+<h2>Credits</h2>
 
+Logo design by [Alfredo Hernández](https://aldomann.com/).
