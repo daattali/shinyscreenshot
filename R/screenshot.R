@@ -20,12 +20,20 @@
 #' takes a screenshot immediately.
 #' @param download If `TRUE` (default), download the screenshot image to the user's computer.
 #' If `FALSE`, the image isn't downloaded to the user, and a `server_dir` should be specified.
-#' @param server_dir Directory on the server where the screenshot image should be saved. Note
-#' that only the directory should be specified, not the file name. The directory must exist
-#' and be writeable. If `NULL` (default), the screenshot image is only downloaded to the
-#' user's computer and is not saved to the server. If a relative path is provided, it is relative
-#' to the Shiny app's working directory. For example, `server_dir="."` will save the image in
-#' the same directory that the Shiny app is in.
+#' @param server_dir Directory on the server where the screenshot image should be saved. See
+#' 'Saving to the server' section below.
+#' @section Saving to the server:
+#' By default, the image is downloaded to the user's computer and is not stored on the server
+#' running the Shiny app. If a `server_dir` is provided, then the image is stored to this
+#' directory on the server. Note that only the directory should be specified, not the file name.
+#'
+#' If saving the image is successful, `input$shinyscreenshot` will contain the full path to
+#' the image. If not, `input$shinyscreenshot` will contain an empty string (`""`).
+#'
+#' The directory must exist and be writeable. If `NULL`, the image is not saved to the server.
+#' If a relative path is provided, it is relative to the Shiny app's working directory. For
+#' example, `server_dir="."` will save the image in the same directory that the Shiny app is in.
+#' @seealso [screenshotButton()]
 #' @examples
 #' if (interactive()) {
 #'   library(shiny)
@@ -76,7 +84,10 @@ screenshot <- function(selector = "body", filename = "shinyscreenshot", id = "",
 #' @param id As an alternative to `selector`, an ID of the element that should be captured
 #' can be provided. If `id` is provided, then `selector` is ignored. When used in a module,
 #' the `id` **does** need to be namespaced, like any other UI element.
+#' @param ns The [`namespace`][shiny::NS()] object of the current module if inside a Shiny module.
 #' @param ... Any other parameters that should be passed along to the [`shiny::actionButton()`].
+#' @inheritSection screenshot Saving to the server
+#' @seealso [screenshot()]
 #' @examples
 #' if (interactive()) {
 #'   library(shiny)

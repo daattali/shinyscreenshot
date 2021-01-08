@@ -4,24 +4,25 @@
 
     if (!dir.exists(data$dir)) {
       warning("shinyscreenshot: server_dir path does not exist", call. = FALSE)
-      return(FALSE)
+      return("")
     }
     if (file.access(data$dir, 2) == -1) {
       warning("shinyscreenshot: server_dir path is not writeable", call. = FALSE)
-      return(FALSE)
+      return("")
     }
 
-    success <- tryCatch({
-      imgfile <- file(file.path(data$dir, data$filename), "wb")
+    retval <- tryCatch({
+      filepath <- file.path(data$dir, data$filename)
+      imgfile <- file(filepath, "wb")
       on.exit(close(imgfile))
       base64enc::base64decode(what = imgdata, output = imgfile)
-      TRUE
+      normalizePath(filepath)
     }, error = function(err) {
       warning("shinyscreenshot: image could not be saved to server", call. = FALSE)
-      FALSE
+      ""
     })
 
-    success
+    retval
   }, force = TRUE)
 }
 

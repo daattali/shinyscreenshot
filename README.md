@@ -98,7 +98,7 @@ The `screenshot()` function can be called any time inside the server portion of 
 
 - **File name:** You can choose the name of the downloaded file using the `filename` parameter.
 
-- **Storing on the server:** The image screenshot can also be stored on the server using the `server_dir` parameter. 
+- **Saving on the server:** The image screenshot can also be stored on the server using the `server_dir` parameter. If the save is successful, `input$shinyscreenshot` will store the path of the image.
 
 - **Module support:** As an alternative to the `selector` argument, you can also use the `id` argument. For example, instead of using `screenshot(selector="#myplot")`, you could use `screenshot(id="myplot")`. The advantage with using an ID directly is that the `id` parameter is module-aware, so even if you're taking a screenshot inside a Shiny module, you don't need to worry about namespacing.
 
