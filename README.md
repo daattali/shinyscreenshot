@@ -45,13 +45,13 @@ work](https://github.com/sponsors/daattali) to unlock rewards\! ❤**
 # Table of contents
 
   - [How to use](#usage)
+  - [Sponsors 🏆](#sponsors)
   - [Screenshot button](#screenshotbutton)
   - [Features](#features)
   - [Installation](#install)
   - [Motivation](#motivation)
   - [Browser support and limitations](#limitations)
   - [Similar packages](#similar)
-  - [Sponsors 🏆](#sponsors)
 
 <h2 id="usage">How to use</h2>
 
@@ -74,6 +74,13 @@ It's so simple that an example isn't needed, but here's one anyway:
     }
     
     shinyApp(ui, server)
+
+<h2 id="sponsors">Sponsors 🏆</h2>
+
+- [Eric Nantz](https://r-podcast.org/)
+
+[Become a sponsor for
+{shinyscreenshot}\!](https://github.com/sponsors/daattali/sponsorships?tier_id=39856)
 
 <h2 id="screenshotbutton">Screenshot button</h2>
 
@@ -124,9 +131,4 @@ As mentioned above, the libraries used by {shinyscreenshot} do have limitations 
 
 RStudio's [{webshot}](https://github.com/wch/webshot) package is also similar, but serves a very different purpose. {webshot} is used to take screenshots of any website (including Shiny apps), but you cannot interact with the page in order to take a screenshot at a specific time.
 
-<h2 id="sponsors">Sponsors 🏆</h2>
 
-- [Eric Nantz](https://r-podcast.org/)
-
-[Become a sponsor for
-{shinyscreenshot}\!](https://github.com/sponsors/daattali/sponsorships?tier_id=39856)
