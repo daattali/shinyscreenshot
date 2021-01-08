@@ -12,7 +12,7 @@ screenshotButton(
   timer = 0,
   download = TRUE,
   server_dir = NULL,
-  ns = NS(NULL),
+  ns = shiny::NS(NULL),
   ...
 )
 }

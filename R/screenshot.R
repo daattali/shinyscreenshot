@@ -111,7 +111,7 @@ screenshot <- function(selector = "body", filename = "shinyscreenshot", id = "",
 #' @export
 screenshotButton <- function(selector = "body", filename = "shinyscreenshot", id = "",
                              scale = 1, timer = 0, download = TRUE, server_dir = NULL,
-                             ns = NS(NULL), ...) {
+                             ns = shiny::NS(NULL), ...) {
   params <- getParams(as.list(environment()), server = FALSE)
   params$namespace <- ns("")
 
