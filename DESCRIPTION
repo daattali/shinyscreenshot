@@ -1,23 +1,26 @@
 Package: shinyscreenshot
 Title: Capture Screenshots of Entire Pages or Parts of Pages in 'Shiny'
-Version: 0.1.0
+Version: 0.1.0.9000
 Authors@R: c(
-    person("Dean", "Attali", email = "daattali@gmail.com",
-      role = c("aut", "cre")),
+    person("Dean", "Attali",
+        email = "daattali@gmail.com",
+        role = c("aut", "cre"),
+        comment = c(ORCID="0000-0002-5645-3493")),
     person("Niklas", "von Hertzen", email = "niklasvh@gmail.com",
-      role = c("aut"), comment = "html2canvas library"),
+        role = c("aut"), comment = "html2canvas library"),
     person("Eli", "Grey", email = "~@eligrey.com",
-      role = c("aut"), comment = "FileSaver library")
+        role = c("aut"), comment = "FileSaver library")
     )
 Description: Capture screenshots in 'Shiny' applications. Screenshots can either be
     of the entire viewable page, or a specific section of the page. The captured
-    image is automatically downloaded as a PNG image. Powered by the
-    'html2canvas' JavaScript library.
+    image is automatically downloaded as a PNG image, or it can also be saved on
+    the server. Powered by the 'html2canvas' JavaScript library.
 URL: https://github.com/daattali/shinyscreenshot https://daattali.com/shiny/shinyscreenshot-demo/
 BugReports: https://github.com/daattali/shinyscreenshot/issues
 Depends:
     R (>= 3.1.0)
 Imports:
+    base64enc,
     jsonlite,
     shiny (>= 1.0.0),
     uuid

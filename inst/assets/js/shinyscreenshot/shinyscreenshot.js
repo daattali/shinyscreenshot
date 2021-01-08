@@ -13,7 +13,16 @@ var shinyscreenshot = {
       }
     ).then(function(canvas) {
       var img = canvas.toDataURL();
-      saveAs(img, params.filename);
+      if (params.server_dir !== null) {
+        Shiny.setInputValue(
+          `${params.namespace}shinyscreenshot:shinyscreenshot`,
+          { image: img, filename : params.filename, dir : params.server_dir },
+          { priority : "event" }
+        );
+      }
+      if (params.download) {
+        saveAs(img, params.filename);
+      }
     });
   },
 
@@ -23,4 +32,4 @@ var shinyscreenshot = {
   }
 };
 
-Shiny.addCustomMessageHandler('screenshot', shinyscreenshot.initScreenshot)
+Shiny.addCustomMessageHandler('screenshot', shinyscreenshot.initScreenshot);

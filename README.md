@@ -24,7 +24,7 @@
 
 ---
 
-{shinyscreenshot} allows you to capture screenshots of entire pages or parts of pages in Shiny apps. Can be used to capture the *current* state of a Shiny app, including interactive widgets (such as plotly, timevis, maps, etc). The captured image is automatically downloaded as a PNG image.
+{shinyscreenshot} allows you to capture screenshots of entire pages or parts of pages in Shiny apps. Can be used to capture the *current* state of a Shiny app, including interactive widgets (such as plotly, timevis, maps, etc). The captured image is automatically downloaded as a PNG image, or it can be saved on the server.
 
 **Need Shiny help? [I’m available for
 consulting](https://attalitech.com/).**<br/> **If you find {shinyscreenshot}
@@ -90,6 +90,8 @@ The `screenshot()` function can be called any time inside the server portion of 
 - **Timer:** Usually you want the screenshot to be taken immediately, but sometimes you may want to tell Shiny to take a screenshot in, for example, 3 seconds from now. That can be done using `screenshot(timer=3)`.
 
 - **File name:** You can choose the name of the downloaded file using the `filename` parameter.
+
+- **Storing on the server:** The image screenshot can also be stored on the server using the `server_dir` parameter. 
 
 - **Module support:** As an alternative to the `selector` argument, you can also use the `id` argument. For example, instead of using `screenshot(selector="#myplot")`, you could use `screenshot(id="myplot")`. The advantage with using an ID directly is that the `id` parameter is module-aware, so even if you're taking a screenshot inside a Shiny module, you don't need to worry about namespacing.
 

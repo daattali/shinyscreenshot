@@ -18,6 +18,14 @@
 #' image that's twice the height and width (and a larger file size).
 #' @param timer Number of seconds to wait before taking the screenshot. Default is 0, which
 #' takes a screenshot immediately.
+#' @param download If `TRUE` (default), download the screenshot image to the user's computer.
+#' If `FALSE`, the image isn't downloaded to the user, and a `server_dir` should be specified.
+#' @param server_dir Directory on the server where the screenshot image should be saved. Note
+#' that only the directory should be specified, not the file name. The directory must exist
+#' and be writeable. If `NULL` (default), the screenshot image is only downloaded to the
+#' user's computer and is not saved to the server. If a relative path is provided, it is relative
+#' to the Shiny app's working directory. For example, `server_dir="."` will save the image in
+#' the same directory that the Shiny app is in.
 #' @examples
 #' if (interactive()) {
 #'   library(shiny)
@@ -46,12 +54,13 @@
 #' }
 #' @export
 screenshot <- function(selector = "body", filename = "shinyscreenshot", id = "",
-                       scale = 1, timer = 0) {
+                       scale = 1, timer = 0, download = TRUE, server_dir = NULL) {
   params <- getParams(as.list(environment()), server = TRUE)
 
   shiny::insertUI("head", "beforeEnd", getDependencies(), immediate = TRUE)
 
   session <- getSession()
+  params$namespace <- session$ns("")
   session$sendCustomMessage("screenshot", params)
 }
 
@@ -90,8 +99,10 @@ screenshot <- function(selector = "body", filename = "shinyscreenshot", id = "",
 #' }
 #' @export
 screenshotButton <- function(selector = "body", filename = "shinyscreenshot", id = "",
-                             scale = 1, timer = 0, ...) {
+                             scale = 1, timer = 0, download = TRUE, server_dir = NULL,
+                             ns = NS(NULL), ...) {
   params <- getParams(as.list(environment()), server = FALSE)
+  params$namespace <- ns("")
 
   btnParams <- eval(substitute(alist(...)))
   if (! "label" %in% names(btnParams)) {
@@ -104,7 +115,9 @@ screenshotButton <- function(selector = "body", filename = "shinyscreenshot", id
   btnid <- paste0("__shinyscreenshot-", gsub("-", "", uuid::UUIDgenerate()))
   btnParams[["inputId"]] <- btnid
   btnParams[["onclick"]] <- paste0("shinyscreenshot.screenshotButton('", btnid, "')")
-  btnParams[["data-shinyscreenshot-params"]] <- jsonlite::toJSON(params, auto_unbox = TRUE)
+  btnParams[["data-shinyscreenshot-params"]] <- jsonlite::toJSON(
+    params, auto_unbox = TRUE, null = "null"
+  )
 
   shiny::tagList(
     getDependencies(),

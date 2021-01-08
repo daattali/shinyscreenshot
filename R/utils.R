@@ -26,6 +26,9 @@ getParams <- function(params, server = TRUE) {
   if (params[["scale"]] <= 0) {
     stop("'scale' must be > 0.", call. = FALSE)
   }
+  if (!params[["download"]] && is.null(params[["server_dir"]])) {
+    stop("You must either set 'download=TRUE' or provide a 'server_dir'.", call. = FALSE)
+  }
 
   if (nzchar(params[["id"]])) {
     if (server) {
@@ -41,6 +44,8 @@ getParams <- function(params, server = TRUE) {
     selector = params[["selector"]],
     filename = params[["filename"]],
     scale = params[["scale"]],
-    timer = params[["timer"]]
+    timer = params[["timer"]],
+    download = params[["download"]],
+    server_dir = params[["server_dir"]]
   )
 }
