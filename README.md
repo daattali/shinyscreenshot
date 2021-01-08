@@ -12,8 +12,8 @@
   </h4>
 
   <p align="center">
-    <a href="https://travis-ci.org/daattali/shinyscreenshot">
-      <img src="https://travis-ci.org/daattali/shinyscreenshot.svg?branch=master" alt="Build Status" />
+    <a href="https://github.com/daattali/shinyscreenshot/actions">
+      <img src="https://github.com/daattali/shinyscreenshot/workflows/R-CMD-check/badge.svg" alt="R Build Status" />
     </a>
     <a href="https://cran.r-project.org/package=shinyscreenshot">
       <img src="https://www.r-pkg.org/badges/version/shinyscreenshot" alt="CRAN version" />
