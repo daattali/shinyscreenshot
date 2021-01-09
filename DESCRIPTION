@@ -25,7 +25,6 @@ Imports:
     shiny (>= 1.0.0),
     uuid
 Suggests:
-    rmarkdown,
     timevis
 License: MIT + file LICENSE
 LazyData: true
