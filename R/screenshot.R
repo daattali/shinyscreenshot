@@ -65,9 +65,13 @@ screenshot <- function(selector = "body", filename = "shinyscreenshot", id = "",
                        scale = 1, timer = 0, download = TRUE, server_dir = NULL) {
   params <- getParams(as.list(environment()), server = TRUE)
 
-  shiny::insertUI("head", "beforeEnd", getDependencies(), immediate = TRUE)
-
   session <- getSession()
+
+  if (is.null(session$userData$.shinyscreenshot_added) || !session$userData$.shinyscreenshot_added) {
+    shiny::insertUI("head", "beforeEnd", getDependencies(), immediate = TRUE)
+    session$userData$.shinyscreenshot_added <- TRUE
+  }
+
   params$namespace <- session$ns("")
   session$sendCustomMessage("screenshot", params)
 }
