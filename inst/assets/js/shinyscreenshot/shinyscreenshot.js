@@ -15,8 +15,8 @@ var shinyscreenshot = {
       var img = canvas.toDataURL();
       if (params.server_dir !== null) {
         Shiny.setInputValue(
-          `${params.namespace}shinyscreenshot:shinyscreenshot`,
-          { image: img, filename : params.filename, dir : params.server_dir },
+          `${params.namespace}${params.varname}`,
+          img,
           { priority : "event" }
         );
       }

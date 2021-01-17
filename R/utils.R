@@ -38,11 +38,11 @@ getParams <- function(params, server = TRUE) {
       params[["selector"]] <- paste0("#", params[["id"]])
     }
   }
-  params[["filename"]] <- paste0(params[["filename"]], ".png")
+  params[["filename"]] <- paste0(params[["varname"]])
 
   list(
     selector = params[["selector"]],
-    filename = params[["filename"]],
+    varname = params[["varname"]],
     scale = params[["scale"]],
     timer = params[["timer"]],
     download = params[["download"]],
