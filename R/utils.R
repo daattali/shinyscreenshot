@@ -38,7 +38,7 @@ getParams <- function(params, server = TRUE) {
       params[["selector"]] <- paste0("#", params[["id"]])
     }
   }
-  params[["filename"]] <- paste0(params[["varname"]])
+  params[["varname"]] <- paste0(params[["filename"]])
 
   list(
     selector = params[["selector"]],
