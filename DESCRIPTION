@@ -1,6 +1,6 @@
 Package: shinyscreenshot
 Title: 📷 Capture Screenshots of Entire Pages or Parts of Pages in 'Shiny'
-Version: 0.1.0.9000
+Version: 0.2.0
 Authors@R: c(
     person("Dean", "Attali",
         email = "daattali@gmail.com",
@@ -27,7 +27,6 @@ Imports:
 Suggests:
     timevis
 License: MIT + file LICENSE
-LazyData: true
 Encoding: UTF-8
 RoxygenNote: 7.1.1
 Roxygen: list(markdown = TRUE)
