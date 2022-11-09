@@ -1,5 +1,6 @@
 # Unreleased version
 
+- Add example to README to show how to use save to server feature
 - Use `htmlDependency()` instead of `addResourcePath()` which is more robust (#20)
 
 # shinyscreenshot 0.2.0 (2021-12-20)

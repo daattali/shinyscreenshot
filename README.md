@@ -57,6 +57,7 @@
   - [Sponsors 🏆](#sponsors)
   - [Screenshot button](#screenshotbutton)
   - [Features](#features)
+  - [Save to server example](#server)
   - [Installation](#install)
   - [Motivation](#motivation)
   - [Browser support and limitations](#limitations)
@@ -110,6 +111,35 @@ The `screenshot()` function can be called any time inside the server portion of 
 - **Saving on the server:** The image screenshot can also be stored on the server using the `server_dir` parameter. If the save is successful, `input$shinyscreenshot` will store the path of the image.
 
 - **Module support:** As an alternative to the `selector` argument, you can also use the `id` argument. For example, instead of using `screenshot(selector="#myplot")`, you could use `screenshot(id="myplot")`. The advantage with using an ID directly is that the `id` parameter is module-aware, so even if you're taking a screenshot inside a Shiny module, you don't need to worry about namespacing.
+
+<h2 id="server">Save to server example</h2>
+
+The example below uses the `server_dir` parameter to save the screenshot to the server instead of downloading it to the user's browser. As proof that the file was saved on the server-side, a preview of the file is shown. You can change the `download = FALSE` parameter to `TRUE` if you want to both save to the server and also download the file.
+
+```r
+library(shiny)
+library(shinyscreenshot)
+
+ui <- fluidPage(
+  plotly::plotlyOutput("plot"),
+  screenshotButton(download = FALSE, server_dir = tempdir(), id = "plot"),
+  h2("Preview of screenshot:"),
+  imageOutput("preview", width = "50%", height = "200")
+)
+
+server <- function(input, output) {
+  output$plot <- plotly::renderPlotly({
+    plotly::plot_ly(mtcars, x = ~wt, y = ~mpg)
+  })
+  
+  output$preview <- renderImage(deleteFile = TRUE, {
+    req(input$shinyscreenshot) 
+    list(src = input$shinyscreenshot, width = "100%", height = "100%")
+  })
+}
+
+shinyApp(ui, server)
+```
 
 <h2 id="install">Installation</h2>
 
