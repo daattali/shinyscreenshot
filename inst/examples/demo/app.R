@@ -78,6 +78,18 @@ ui <- fluidPage(
 
 server <- function(input, output, session) {
   output$timeline <- timevis::renderTimevis({
+
+    countryToCode <- list(
+      "Argentina" = "ar",
+      "Belgium" = "be",
+      "Brazil" = "br",
+      "Colombia" = "co",
+      "Costa Rica" = "cr",
+      "France" = "fr",
+      "Germany" = "de",
+      "Netherlands" = "nl"
+    )
+
     templateWC <- function(stage, team1, team2, score1, score2) {
       sprintf(
         '<table><tbody>
@@ -88,13 +100,12 @@ server <- function(input, output, session) {
         <td>%s</td>
       </tr>
       <tr>
-        <td><img src="flags/%s.png" width="31" height="20" alt="%s"></td>
+        <td><img src="https://flagpedia.net/data/flags/mini/%s.png" width="31" height="20" alt="%s"></td>
         <th></th>
-        <td><img src="flags/%s.png" width="31" height="20" alt="%s"></td>
+        <td><img src="https://flagpedia.net/data/flags/mini/%s.png" width="31" height="20" alt="%s"></td>
       </tr>
     </tbody></table>',
-        stage, team1, score1, score2, team2, gsub("\\s", "", tolower(team1)),
-        team1, gsub("\\s", "", tolower(team2)), team2
+        stage, team1, score1, score2, team2, countryToCode[[team1]], team1, countryToCode[[team2]], team2
       )
     }
 
