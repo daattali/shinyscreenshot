@@ -9,14 +9,29 @@ getSession <- function() {
 }
 
 getDependencies <- function() {
-  shiny::addResourcePath("shinyscreenshot-assets",
-                         system.file("assets", package = "shinyscreenshot"))
-
-  shiny::singleton(shiny::tags$head(
-    shiny::tags$script(src = "shinyscreenshot-assets/js/html2canvas/html2canvas.min.js"),
-    shiny::tags$script(src = "shinyscreenshot-assets/js/FileSaver/FileSaver.js"),
-    shiny::tags$script(src = "shinyscreenshot-assets/js/shinyscreenshot/shinyscreenshot.js")
-  ))
+  list(
+    htmltools::htmlDependency(
+      name = "html2canvas-js",
+      version = "1.0.0",
+      package = "shinyscreenshot",
+      src = "assets/lib/html2canvas",
+      script = "html2canvas.min.js"
+    ),
+    htmltools::htmlDependency(
+      name = "filesaver-js",
+      version = "1.0.0",
+      package = "shinyscreenshot",
+      src = "assets/lib/FileSaver",
+      script = "FileSaver.js"
+    ),
+    htmltools::htmlDependency(
+      name = "shinyscreenshot-binding",
+      version = as.character(utils::packageVersion("shinyscreenshot")),
+      package = "shinyscreenshot",
+      src = "assets/shinyscreenshot",
+      script = "shinyscreenshot.js"
+    )
+  )
 }
 
 getParams <- function(params, server = TRUE) {

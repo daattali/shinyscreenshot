@@ -68,7 +68,7 @@ screenshot <- function(selector = "body", filename = "shinyscreenshot", id = "",
   session <- getSession()
 
   if (is.null(session$userData$.shinyscreenshot_added) || !session$userData$.shinyscreenshot_added) {
-    shiny::insertUI("head", "beforeEnd", getDependencies(), immediate = TRUE)
+    shiny::insertUI("head", "beforeEnd", immediate = TRUE, ui = getDependencies())
     session$userData$.shinyscreenshot_added <- TRUE
   }
 

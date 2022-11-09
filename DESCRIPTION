@@ -1,6 +1,6 @@
 Package: shinyscreenshot
 Title: Capture Screenshots of Entire Pages or Parts of Pages in 'Shiny'
-Version: 0.2.0
+Version: 0.2.0.9000
 Authors@R: c(
     person("Dean", "Attali",
         email = "daattali@gmail.com",
@@ -21,6 +21,7 @@ Depends:
     R (>= 3.1.0)
 Imports:
     base64enc,
+    htmltools (>= 0.3.5),
     jsonlite,
     shiny (>= 1.0.0),
     uuid
