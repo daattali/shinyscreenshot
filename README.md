@@ -164,7 +164,7 @@ After seeing many people asking about this, one day my R-friend Eric Nantz [aske
 
 <h2 id="limitations">Browser support and limitations</h2>
 
-The screenshots are powered by the 'html2canvas' JavaScript library. They do not always produce perfect screenshots, please refer to 'html2canvas' for more information about the limitations.
+The screenshots are powered by the 'html2canvas' JavaScript library. They do not always produce perfect screenshots, please refer to 'html2canvas' for more information about the limitations. Leaflet maps often have trouble with screenshots, and unfortunately this is a known issue that canont be fixed.
 
 The JavaScript libraries used in this package may not be supported by all browsers. {shinyscreenshot} should work on Chrome, Firefox, Edge, Chrome on Android, Safari on iPhone (and probably more that I haven't tested). It does not work in Internet Explorer.
 
