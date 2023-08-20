@@ -15,7 +15,7 @@ Description: Capture screenshots in 'Shiny' applications. Screenshots can either
     of the entire viewable page, or a specific section of the page. The captured
     image is automatically downloaded as a PNG image, or it can also be saved on
     the server. Powered by the 'html2canvas' JavaScript library.
-URL: https://github.com/daattali/shinyscreenshot https://daattali.com/shiny/shinyscreenshot-demo/
+URL: https://github.com/daattali/shinyscreenshot, https://daattali.com/shiny/shinyscreenshot-demo/
 BugReports: https://github.com/daattali/shinyscreenshot/issues
 Depends:
     R (>= 3.1.0)
@@ -29,5 +29,5 @@ Suggests:
     timevis
 License: MIT + file LICENSE
 Encoding: UTF-8
-RoxygenNote: 7.1.1
+RoxygenNote: 7.2.3
 Roxygen: list(markdown = TRUE)
