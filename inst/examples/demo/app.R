@@ -79,15 +79,15 @@ ui <- fluidPage(
 server <- function(input, output, session) {
   output$timeline <- timevis::renderTimevis({
 
-    countryToCode <- list(
-      "Argentina" = "ar",
-      "Belgium" = "be",
-      "Brazil" = "br",
-      "Colombia" = "co",
-      "Costa Rica" = "cr",
-      "France" = "fr",
-      "Germany" = "de",
-      "Netherlands" = "nl"
+    countryToBase64Img <- list(
+      "Argentina" = "iVBORw0KGgoAAAANSUhEUgAAACAAAAAUBAMAAAAevyJ8AAAAJ1BMVEWiyOp0rN/////58+3fsGny38fnowzz5Nfr0Krr07ndqUvs1LXSnlC6gwhIAAAANklEQVQY02MQRAMMNBHAAEoQYBoMZUAFlFs8jFAE1N1yilAEVJelBKFq2eKJqgXJUAxAF98CAFcNHShSkYrsAAAAAElFTkSuQmCC",
+      "Belgium" = "iVBORw0KGgoAAAANSUhEUgAAABcAAAAUBAMAAACUkLs9AAAAElBMVEUAAABVSgzvM0D0ajf1ajf92iXQKeqYAAAAHUlEQVQY02NgYGBgDA0NDVFSUlJggHKCRwwH7G0AncUk97jJjWYAAAAASUVORK5CYII=",
+      "Brazil" = "iVBORw0KGgoAAAANSUhEUgAAAB0AAAAUCAMAAABGQsb1AAAAe1BMVEUAmzoEKnj52wIKL3lBrSsHnDjb1Qj+3wAAJ3akxxRetCQToDUopjBDWGHEzw3r2gQhRoYfPWcYoTSHvxv63gGyzcyGiDcqS4uMkTo2WJETN32+tTq2qyF+p67eyA82TV1baUzItxns0Qh+vB1+mLZqmKKeu8OSr71VcKRxCrRcAAAArElEQVQoz62Rxw6DMBBEsY2zQ7fpvaX+/xfmgFCAgFCkzPVJq7czhvGvSFseQ/NCF/OAORYREVnOHrSDsddM92NgfzHXp0EDAPRAvru2iWLiXpEJAOg48atc2RBVzb15JM8XUBN97MLJJs0AQN2SIl3azRSCQQBZkk80XF6uFQNjAlDV8vJs1TGFkrHC4xRHcvtRKwCIsmy3H01t8NwTXs532jhr8mSFswV/zBsgcAoSjHCdRAAAAABJRU5ErkJggg==",
+      "Colombia" = "iVBORw0KGgoAAAANSUhEUgAAAB4AAAAUAgMAAADnxWVXAAAACVBMVEUAMIfIEC7/zQBWZSB5AAAAF0lEQVQI12NYBQELGKjOIAmEQkAAMQwA+9NB7HYGMdMAAAAASUVORK5CYII=",
+      "Costa Rica" = "iVBORw0KGgoAAAANSUhEUgAAACEAAAAUCAMAAAA0jaRDAAAAP1BMVEX////y28NtdFSWxM8AFIntmI/laWD2ycbaKRy/xOHp3d3t7ubYx6GrwaTdPDDofHV3eIPaKh0mdlbErIY3fWbk5bcpAAAAUklEQVQoz2NgIQQYqKGCkxBgoAZgJwQYOKCAlYuLnwMbgKlg4+bl5ebDp4KVh5mZkQ2vCiYRISa8KtiEBQR48NoiyMrIiMOlhH1LDUA45uiSggASiQ2ajzJk0wAAAABJRU5ErkJggg==",
+      "France" = "iVBORw0KGgoAAAANSUhEUgAAAB4AAAAUAgMAAADnxWVXAAAACVBMVEUAI5XtKTn///+i/AH+AAAAFElEQVQI12NgYOBatSo0NIBh6DAATSAu4Xxi9HsAAAAASUVORK5CYII=",
+      "Germany" = "iVBORw0KGgoAAAANSUhEUgAAACEAAAAUBAMAAADxfUlCAAAAD1BMVEUAAABKAADdAAD0igD/zgDupiNjAAAAIUlEQVQY02NgoCMQRAMCDEpoQIGGIsZowIDBBQ040E4EAM/nLQEUDzk4AAAAAElFTkSuQmCC",
+      "Netherlands" = "iVBORw0KGgoAAAANSUhEUgAAAB4AAAAUBAMAAABohZD3AAAAD1BMVEUhRotrhLKuHCjIZm7///9fvUPgAAAAHElEQVQY02NUYkABTAzU5bMI4udT2z5GNPNpDQBo2wB0uX4S5QAAAABJRU5ErkJggg=="
     )
 
     templateWC <- function(stage, team1, team2, score1, score2) {
@@ -100,12 +100,12 @@ server <- function(input, output, session) {
         <td>%s</td>
       </tr>
       <tr>
-        <td><img src="https://flagpedia.net/data/flags/mini/%s.png" width="31" height="20" alt="%s"></td>
+        <td><img src="data:image/png;base64,%s" width="31" height="20" alt="%s"></td>
         <th></th>
-        <td><img src="https://flagpedia.net/data/flags/mini/%s.png" width="31" height="20" alt="%s"></td>
+        <td><img src="data:image/png;base64,%s" width="31" height="20" alt="%s"></td>
       </tr>
     </tbody></table>',
-        stage, team1, score1, score2, team2, countryToCode[[team1]], team1, countryToCode[[team2]], team2
+        stage, team1, score1, score2, team2, countryToBase64Img[[team1]], team1, countryToBase64Img[[team2]], team2
       )
     }
 
